@@ -16,7 +16,6 @@ import Juan from '@/images/students/juan.jpeg'
 import Neel from '@/images/students/neel.jpg'
 import Rutva from '@/images/students/rutva.jpg'
 import Chandan from '@/images/students/chandan.jpg'
-import Derya from '@/images/students/derya.jpg'
 import Jackie from '@/images/students/jackie.jpg'
 import Daniel from '@/images/students/daniel.jpg'
 import Lili from '@/images/students/lili.jpg'
@@ -81,13 +80,6 @@ const masters_students = [
     degree: 'MSc',
     imageUrl: Juan,
     bio: "I received my MD at the University of Buenos Aires in 2009. I completed my residency in Neurosurgery at the Central Military Hospital in Buenos Aires and pursued a research fellowship in cerebrovascular and skull base surgery at the Arkansas Neuroscience Institute in Little Rock, AR in 2014. Following this, I was appointed as staff neurosurgeon in the Pedro de Elizalde Children’s Hospital in Buenos Aires. In 2019, I completed a clinical fellowship in epilepsy surgery at Western University in London, ON. For my master's project, I am investigating the role of resting-state functional MRI and functional NIRS in pediatric epilepsy surgery with special focus in preoperative language mapping and postoperative cognitive outcomes.",
-  },
-  {
-    name: 'Derya Adil',
-    role: 'Neuroscience',
-    degree: 'MSc',
-    imageUrl: Derya,
-    bio: "My research focuses on understanding how children with infantile hydrocephalus learn and develop, with a particular interest in brain plasticity and neurodevelopment. I use resting-state fMRI to investigate the visuomotor network in children with hydrocephalus compared to typically developing controls, and I incorporate behavioural assessments to evaluate cognitive functioning. I am also interested in how functional connectivity reorganizes in response to cognitive interventions, particularly within the visual and frontoparietal networks. In parallel, I use diffusion tensor imaging to examine white matter development and structural reorganization. I am especially interested in how patterns of white matter connectivity relate to functional outcomes in pediatric populations.",
   },
   {
     name: 'Susana Correa',
