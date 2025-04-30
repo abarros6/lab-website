@@ -22,6 +22,7 @@ import Lili from '@/images/students/lili.jpg'
 import Jane from '@/images/students/jane.jpeg'
 import Jonah from '@/images/students/jonah.jpeg'
 import Henna from '@/images/students/henna.jpg'
+import Xiang from '@/images/students/Xiang.jpg'
 
 function QuoteIcon(props) {
   return (
@@ -65,10 +66,10 @@ const phd_students = [
     bio:'My research is focused on skill development in cerebral angiography coiling procedures using haptic simulation. During an endovascular intervention with a cerebral aneurysm, an interventionalist manipulates a set of wires and catheters in order to fill and stabilize the aneurysmal space. This procedure uses limited fluoroscopy monitoring to navigate a 3D endovascular network – a combination of obstacles that make the procedure difficult. Currently, fellowships specializing in teaching these procedures are limited to offering most technical training in the operating room. With the appropriate implementation of simulation, it would be advantageous to target and develop core procedural skills and competencies.'
   },
   {
-    name:'Maryam Akhshi',
-    role: 'Neuroscience',
+    name:'Xiang Li',
+    role: 'Software Engineering',
     degree: 'PhD',
-    imageUrl: Blank,
+    imageUrl: Xiang,
     bio:''
   }
 ]
