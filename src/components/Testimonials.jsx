@@ -10,6 +10,8 @@ import backgroundImage from '@/images/backgroundTest.svg'
 import Sandrine from '@/images/dr._sandrine_de_ribaupierre.jpg'
 import Roy from '@/images/Roy.jpg'
 import Matea from '@/images/matea.jpg'
+import Derya from '@/images/derya.jpg'
+
 
 
 
@@ -47,6 +49,13 @@ const reserachCoordinators = [
     role: 'Research Associate',
     imageUrl: Matea,
     bio: "Matea is a Research Associate at London Health Sciences Centre, ON, Canada. She completed a Master’s of Science degree in the School of Public Health Sciences at the University of Waterloo. She received a Bachelor's degree in Health Sciences with a minor in Psychology from the University of Ottawa. Before coming to LHSC, she worked as a Research Assistant at the University Health Network in the Neurology Department. Matea has expertise in population health and clinical epidemiology research. Her major research interests include epidemiology and cognitive function.",
+  },
+  {
+    name: 'Derya Adil',
+    role: 'Neuroscience',
+    degree: 'MSc',
+    imageUrl: Derya,
+    bio: "My research focuses on understanding how children with infantile hydrocephalus learn and develop, with a particular interest in brain plasticity and neurodevelopment. I use resting-state fMRI to investigate the visuomotor network in children with hydrocephalus compared to typically developing controls, and I incorporate behavioural assessments to evaluate cognitive functioning. I am also interested in how functional connectivity reorganizes in response to cognitive interventions, particularly within the visual and frontoparietal networks. In parallel, I use diffusion tensor imaging to examine white matter development and structural reorganization. I am especially interested in how patterns of white matter connectivity relate to functional outcomes in pediatric populations.",
   },
 ]
 

@@ -87,7 +87,7 @@ const masters_students = [
     role: 'Neuroscience',
     degree: 'MSc',
     imageUrl: Derya,
-    bio: 'My main research interest is gaining a better understanding of how developing children with hydrocephalus learn. Specifically, my project uses resting-state fMRI to investigate the visuomotor network in children with hydrocephalus compared to typically developing controls. I also use behavioural measures to examine neurodevelopmental functioning.',
+    bio: "My research focuses on understanding how children with infantile hydrocephalus learn and develop, with a particular interest in brain plasticity and neurodevelopment. I use resting-state fMRI to investigate the visuomotor network in children with hydrocephalus compared to typically developing controls, and I incorporate behavioural assessments to evaluate cognitive functioning. I am also interested in how functional connectivity reorganizes in response to cognitive interventions, particularly within the visual and frontoparietal networks. In parallel, I use diffusion tensor imaging to examine white matter development and structural reorganization. I am especially interested in how patterns of white matter connectivity relate to functional outcomes in pediatric populations.",
   },
   {
     name: 'Susana Correa',
