@@ -23,6 +23,7 @@ import Jane from '@/images/students/jane.jpeg'
 import Jonah from '@/images/students/jonah.jpeg'
 import Henna from '@/images/students/henna.jpg'
 import Xiang from '@/images/students/Xiang.jpg'
+import Matthew from '@/images/students/Matthew.jpg'
 
 function QuoteIcon(props) {
   return (
@@ -135,8 +136,8 @@ const masters_students = [
     name: 'Matthew Peck',
     role: 'Software Engineering',
     degree: 'MESc',
-    imageUrl: Blank,
-    bio: '',
+    imageUrl: Matthew,
+    bio: "Matthew is a graduate of Western's Computer Engineering program who works with the lab in VR. His research focus is on the viability of sonification techniques in VR settings for training, specifically on medical education and surgical training. He is interested in VR, game development, signal processing, sound synthesis, and psychoacoustics.",
   },
 ]
 
