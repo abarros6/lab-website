@@ -1,0 +1,46 @@
+{
+  "name": "tailwindui-salient",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "browserslist": "defaults, not ie <= 11",
+  "dependencies": {
+    "@headlessui/react": "^1.7.8",
+    "@heroicons/react": "^2.0.16",
+    "@mantine/carousel": "^6.0.4",
+    "@sendgrid/mail": "^8.1.0",
+    "@tabler/icons": "^2.7.0",
+    "@tabler/icons-react": "^2.7.0",
+    "@tailwindcss/forms": "^0.5.3",
+    "autoprefixer": "^10.4.12",
+    "babel-polyfill": "^6.26.0",
+    "clsx": "^1.2.1",
+    "embla-carousel-react": "^7.1.0",
+    "focus-visible": "^5.2.0",
+    "mongodb": "^5.1.0",
+    "next": "13.0.2",
+    "postcss-focus-visible": "^6.0.4",
+    "postmark": "^4.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rete": "^1.5.0-rc1",
+    "rete-area-plugin": "^0.2.1",
+    "rete-connection-plugin": "^0.9.0",
+    "rete-context-menu-plugin": "^1.0.0-alpha9",
+    "rete-react-render-plugin": "^0.3.0",
+    "tabler-icons-react": "^1.56.0",
+    "tailwindcss": "^3.2.1",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.2",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13"
+  }
+}
