@@ -265,9 +265,11 @@ function Example({ title, students }) {
                 <p className="text-base leading-7 text-gray-600">
                   {person.role}, {person.degree}
                 </p>
-                <p>
-                  {person.link}
-                </p>
+                { person.link &&
+                  <p>
+                    {person.link}
+                  </p>
+                }
                 <p className="mt-6 text-base leading-7 text-gray-600">
                   {person.bio}
                 </p>
