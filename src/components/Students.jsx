@@ -25,6 +25,7 @@ import Henna from '@/images/students/henna.jpg'
 import Xiang from '@/images/students/Xiang.jpg'
 import Matthew from '@/images/students/Matthew.jpg'
 import Anthony from '@/images/students/anthony.jpg'
+import Fatima from '@/images/students/fatima.jpg'
 
 function QuoteIcon(props) {
   return (
@@ -233,7 +234,17 @@ const undergrad_students = [
     degree: 'BSc',
     imageUrl: Henna,
     bio:"Henna is presently engaged in research focused on combining resting state fMRI and fNIRS to map language preoperatively in children with drug-resistant Epilepsy and is contributing to understanding the safety and effectiveness of vagal nerve stimulator implantation in children under the age of 5."
+  },
+  {
+    name: 'Fatima Sajid',
+    role: 'Medical Sciences',//'Research assistant and research fellowship recipient',
+    degree: 'BMSc',//'Bachelors of Medical Sciences (BMSc)',
+    imageUrl: Fatima,
+    bio:"Fatima is assisting with research on brain variability and neural networking in children with pediatric epilepsy using Diffusion Tensor Imaging (DTI) and Functional Magnetic Resonance Imaging (fMRI)."
   }
+
+  
+
 ]
 
 function Example({ title, students }) {
