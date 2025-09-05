@@ -22,11 +22,15 @@ import Lili from '@/images/students/lili.jpg'
 import Jane from '@/images/students/jane.jpeg'
 import Jonah from '@/images/students/jonah.jpeg'
 import Henna from '@/images/students/henna.jpg'
-import Xiang from '@/images/students/Xiang.jpg'
+import Xiang from '@/images/students/xiang.jpg'
 import Matthew from '@/images/students/Matthew.jpg'
 import Anthony from '@/images/students/anthony.jpg'
 import Fatima from '@/images/students/fatima.jpg'
 import Parjanya from '@/images/students/parjanya.jpg'
+import Diya from '@/images/students/diya.jpg'
+import James from '@/images/students/james.jpg'
+import Kathleen from '@/images/students/kathleen.jpeg'
+
 
 function QuoteIcon(props) {
   return (
@@ -87,8 +91,22 @@ const phd_students = [
     role: 'Software Engineering',
     degree: 'PhD',
     imageUrl: Xiang,
-    bio:''
-  }
+    bio:`I completed my undergraduate studies in Computer Engineering at Western. In my third year, I worked with Professor Roy on Bill & Barbara Etherington Undergraduate summer Research Fellowship Project and later collaborated with him again on my fourth-year capstone project. In the summer of 2024, I joined this Lab and began pursuing a PhD. My current research mainly focuses on applying technologies such as AI, VR, FPGA, and robotics to the field of neurosurgery. So far, I have developed some VR-based simulators, and I am now working on applications involving AI and FPGA. Following that, I will begin research related to robotics.`
+  },
+  {
+    name:'James Nicholls',
+    role: 'Software Engineering',
+    degree: 'PhD',
+    imageUrl: James,
+    bio:`James graduated from Western's Software Engineering program with Distinction and is currently a PhD student. He has contributed to many projects in the lab involving AR/VR and Unreal Engine. He has also deployed valuable infrastructure used to store and share projects internally within the lab. His research focuses on using AI to develop Personal Life Automations, a new kind of software that securely and privately interconnects all aspects of one's digital life through simple input-output flows. He aspires to learn all that he can to make technology convenient — and not confusing — for everyone.`
+  },   
+  {
+    name: 'Maryum Khan',
+    role: 'Neuroscience',
+    degree: 'PhD',
+    imageUrl: Blank,
+    bio: 'Maryum is interested in pediatric neurorehabilitation and the use of technology to support cognitive development in children with infantile hydrocephalus. Her current research investigates whether interactive tablet and immersive virtual reality (VR) games can help improve visuospatial skills in this population. She will compare the effects of VR and tablet-based training, alongside behavioural assessments and resting-state fMRI. This work aims to explore brain plasticity and inform the development of engaging, tech-based tools for long-term cognitive support. ',
+  },
 ]
 
 const masters_students = [
@@ -163,11 +181,18 @@ const masters_students = [
     bio: "Matthew is a graduate of Western's Computer Engineering program who works with the lab in VR. His research focus is on the viability of sonification techniques in VR settings for training, specifically on medical education and surgical training. He is interested in VR, game development, signal processing, sound synthesis, and psychoacoustics.",
   },
   {
+    name: 'Kathleen McCombe',
+    role: 'Biomedical Engineering',
+    degree: 'MESc',
+    imageUrl: Kathleen,
+    bio: 'I completed my BMSc degree in Interdisciplinary Medical Sciences at Western University. I am now pursuing a MESc in Biomedical Engineering at Western, where my research focuses on developing and testing a gamified, realistic Virtual Reality (VR) simulation of Victoria Hospital in London, Ontario. The goal of this project is to reduce anxiety in pediatric patients prior to appointments, scans, and surgeries by providing an interactive way to familiarize themselves with the hospital environment.'
+  },
+  {
     name: 'Anthony Barros',
     role: 'Software Engineering', 
     degree: 'MESc',
     imageUrl: Anthony,
-    bio: "Anthony is a graduate of the software engineering program and a Masters student. His research is concerned with implementing computer vision algorithms on modern FPGAs.",
+    bio: "Anthony is a graduate of the software engineering program and a Masters student. His research is concerned with implementing machine learning algorithms on modern FPGAs with an interest in clinical applications for improved diagnostic methods.",
     link: <Link site="anthonybarros.ca" text="Personal Website" />
   }
 ]
@@ -248,11 +273,15 @@ const undergrad_students = [
     role: 'Medical Sciences',//'Research assistant and research fellowship recipient',
     degree: 'BMSc',//'Bachelors of Medical Sciences (BMSc)',
     imageUrl: Fatima,
-    bio:"Fatima is assisting with research on brain variability and neural networking in children with pediatric epilepsy using Diffusion Tensor Imaging (DTI) and Functional Magnetic Resonance Imaging (fMRI)."
+    bio:" Fatima is researching brain variability and neural networking in children with pediatric epilepsy using Diffusion Tensor Imaging (DTI) and Functional Magnetic Resonance Imaging (fMRI). Her work focuses on understanding language representation in children with focal epilepsy."
+  },
+  {
+    name: 'Diya Gupta',
+    role: 'Neuroscience',
+    degree: 'BSc',
+    imageUrl: Diya,
+    bio: 'I am currently investigating how infantile hydrocephalus affects the dorsal and ventral visual processing streams in children through segmentation and visuospatial analyses.'
   }
-
-  
-
 ]
 
 function Example({ title, students }) {
