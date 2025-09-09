@@ -30,6 +30,7 @@ import Parjanya from '@/images/students/parjanya.jpg'
 import Diya from '@/images/students/diya.jpg'
 import James from '@/images/students/james.jpg'
 import Kathleen from '@/images/students/kathleen.jpeg'
+import Beryl from '@/images/students/beryl.jpeg'
 
 
 function QuoteIcon(props) {
@@ -67,6 +68,13 @@ const medical_students = [
     degree: 'MD',
     imageUrl: Blank,
     bio:''
+  },
+  {
+    name:'Beryl Chung',
+    role: 'Medical Student',
+    degree: 'BScH, PhD, MD Candidate 2026',
+    imageUrl: Beryl,
+    bio:'Beryl is a medical student at Western University. She completed her PhD in Biomedical Sciences and Neuroscience. She is currently working on projects exploring long-term post-surgical outcomes in craniosynostosis and infantile hydrocephalus. Her work involves the use of fMRI and behavioural testing to better understand recovery and developmental trajectories. Outside of her academic pursuits, she enjoys yoga and pottery.'
   }
 ]
 
