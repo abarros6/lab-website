@@ -54,32 +54,7 @@ const Link = ({ site, text }) => {
   )
 }
 
-const medical_students = [
-  {
-    name:'Mashal Ahmed',
-    role: 'Medical Student',
-    degree: 'MD',
-    imageUrl: Mashal,
-    bio:'Mashal is a second-year medical student at Western. She earned her BSc from the University of Waterloo and her MSc from the University of Toronto. She is currently working on a project which explores the use of virtual reality in paediatric patients prior to and following neurosurgical procedures. Beyond academics, Mashal loves trying out new baking recipes and painting.'
-  },
-  {
-    name:'Renee-Marie Ragguett',
-    role: 'Medical Student',
-    degree: 'MD',
-    imageUrl: Blank,
-    bio:''
-  },
-  {
-    name:'Beryl Chung',
-    role: 'Medical Student',
-    degree: 'BScH, PhD, MD Candidate 2026',
-    imageUrl: Beryl,
-    bio:'Beryl is a medical student at Western University. She completed her PhD in Biomedical Sciences and Neuroscience. She is currently working on projects exploring long-term post-surgical outcomes in craniosynostosis and infantile hydrocephalus. Her work involves the use of fMRI and behavioural testing to better understand recovery and developmental trajectories. Outside of her academic pursuits, she enjoys yoga and pottery.'
-  }
-]
-
-
-const phd_students = [
+const alumni = [
   {
     name: 'Denis Kikinov',
     role: 'Software Engineering',
@@ -95,30 +70,6 @@ const phd_students = [
     bio:'My research is focused on skill development in cerebral angiography coiling procedures using haptic simulation. During an endovascular intervention with a cerebral aneurysm, an interventionalist manipulates a set of wires and catheters in order to fill and stabilize the aneurysmal space. This procedure uses limited fluoroscopy monitoring to navigate a 3D endovascular network – a combination of obstacles that make the procedure difficult. Currently, fellowships specializing in teaching these procedures are limited to offering most technical training in the operating room. With the appropriate implementation of simulation, it would be advantageous to target and develop core procedural skills and competencies.'
   },
   {
-    name:'Xiang Li',
-    role: 'Software Engineering',
-    degree: 'PhD',
-    imageUrl: Xiang,
-    bio:`I completed my undergraduate studies in Computer Engineering at Western. In my third year, I worked with Professor Roy on Bill & Barbara Etherington Undergraduate summer Research Fellowship Project and later collaborated with him again on my fourth-year capstone project. In the summer of 2024, I joined this Lab and began pursuing a PhD. My current research mainly focuses on applying technologies such as AI, VR, FPGA, and robotics to the field of neurosurgery. So far, I have developed some VR-based simulators, and I am now working on applications involving AI and FPGA. Following that, I will begin research related to robotics.`
-  },
-  {
-    name:'James Nicholls',
-    role: 'Software Engineering',
-    degree: 'PhD',
-    imageUrl: James,
-    bio:`James graduated from Western's Software Engineering program with Distinction and is currently a PhD student. He has contributed to many projects in the lab involving AR/VR and Unreal Engine. He has also deployed valuable infrastructure used to store and share projects internally within the lab. His research focuses on using AI to develop Personal Life Automations, a new kind of software that securely and privately interconnects all aspects of one's digital life through simple input-output flows. He aspires to learn all that he can to make technology convenient — and not confusing — for everyone.`
-  },   
-  {
-    name: 'Maryum Khan',
-    role: 'Neuroscience',
-    degree: 'PhD',
-    imageUrl: Blank,
-    bio: 'Maryum is interested in pediatric neurorehabilitation and the use of technology to support cognitive development in children with infantile hydrocephalus. Her current research investigates whether interactive tablet and immersive virtual reality (VR) games can help improve visuospatial skills in this population. She will compare the effects of VR and tablet-based training, alongside behavioural assessments and resting-state fMRI. This work aims to explore brain plasticity and inform the development of engaging, tech-based tools for long-term cognitive support. ',
-  },
-]
-
-const masters_students = [
-  {
     name: 'Juan Santiago Bottan',
     role: 'Neurosurgery',
     degree: 'MSc',
@@ -131,13 +82,6 @@ const masters_students = [
     degree: 'MSc',
     imageUrl: Blank,
     bio: '',
-  },
-  {
-    name: 'Parjanya Parikh',
-    role: 'Neuroscience',
-    degree: 'MSc',
-    imageUrl: Parjanya,
-    bio: 'Parjanya Parikh is currently researching the long-term effects of shunt-treated hydrocephalus in school-age children, with a particular emphasis on working memory development. Using neuroimaging methods, Parjanya is investigating how early neurosurgical interventions shape cognitive outcomes and brain connectivity patterns, with the goal of informing both clinical care and educational support strategies.',
   },
   {
     name: 'Virat Tripathi',
@@ -180,6 +124,65 @@ const masters_students = [
     degree: 'MESc',
     imageUrl: Blank,
     bio: '',
+  }
+]
+
+const medical_students = [
+  {
+    name:'Mashal Ahmed',
+    role: 'Medical Student',
+    degree: 'MD',
+    imageUrl: Mashal,
+    bio:'Mashal is a second-year medical student at Western. She earned her BSc from the University of Waterloo and her MSc from the University of Toronto. She is currently working on a project which explores the use of virtual reality in paediatric patients prior to and following neurosurgical procedures. Beyond academics, Mashal loves trying out new baking recipes and painting.'
+  },
+  {
+    name:'Renee-Marie Ragguett',
+    role: 'Medical Student',
+    degree: 'MD',
+    imageUrl: Blank,
+    bio:''
+  },
+  {
+    name:'Beryl Chung',
+    role: 'Medical Student',
+    degree: 'BScH, PhD, MD Candidate 2026',
+    imageUrl: Beryl,
+    bio:'Beryl is a medical student at Western University. She completed her PhD in Biomedical Sciences and Neuroscience. She is currently working on projects exploring long-term post-surgical outcomes in craniosynostosis and infantile hydrocephalus. Her work involves the use of fMRI and behavioural testing to better understand recovery and developmental trajectories. Outside of her academic pursuits, she enjoys yoga and pottery.'
+  }
+]
+
+
+const phd_students = [
+  {
+    name:'Xiang Li',
+    role: 'Software Engineering',
+    degree: 'PhD',
+    imageUrl: Xiang,
+    bio:`I completed my undergraduate studies in Computer Engineering at Western. In my third year, I worked with Professor Roy on Bill & Barbara Etherington Undergraduate summer Research Fellowship Project and later collaborated with him again on my fourth-year capstone project. In the summer of 2024, I joined this Lab and began pursuing a PhD. My current research mainly focuses on applying technologies such as AI, VR, FPGA, and robotics to the field of neurosurgery. So far, I have developed some VR-based simulators, and I am now working on applications involving AI and FPGA. Following that, I will begin research related to robotics.`
+  },
+  {
+    name:'James Nicholls',
+    role: 'Software Engineering',
+    degree: 'PhD',
+    imageUrl: James,
+    bio:`James graduated from Western's Software Engineering program with Distinction and is currently a PhD student. He has contributed to many projects in the lab involving AR/VR and Unreal Engine. He has also deployed valuable infrastructure used to store and share projects internally within the lab. His research focuses on using AI to develop Personal Life Automations, a new kind of software that securely and privately interconnects all aspects of one's digital life through simple input-output flows. He aspires to learn all that he can to make technology convenient — and not confusing — for everyone.`
+  },   
+  {
+    name: 'Maryum Khan',
+    role: 'Neuroscience',
+    degree: 'PhD',
+    imageUrl: Blank,
+    bio: 'Maryum is interested in pediatric neurorehabilitation and the use of technology to support cognitive development in children with infantile hydrocephalus. Her current research investigates whether interactive tablet and immersive virtual reality (VR) games can help improve visuospatial skills in this population. She will compare the effects of VR and tablet-based training, alongside behavioural assessments and resting-state fMRI. This work aims to explore brain plasticity and inform the development of engaging, tech-based tools for long-term cognitive support. ',
+  },
+]
+
+const masters_students = [
+  {
+    name: 'Parjanya Parikh',
+    role: 'Neuroscience',
+    degree: 'MSc',
+    imageUrl: Parjanya,
+    bio: 'Parjanya Parikh is currently researching the long-term effects of shunt-treated hydrocephalus in school-age children, with a particular emphasis on working memory development. Using neuroimaging methods, Parjanya is investigating how early neurosurgical interventions shape cognitive outcomes and brain connectivity patterns, with the goal of informing both clinical care and educational support strategies.',
   },
   {
     name: 'Matthew Peck',
@@ -351,6 +354,7 @@ export function Students() {
           <Example title="PhD" students={phd_students} />
           <Example title="Master's" students={masters_students} />
           <Example title="Bachelor's" students={undergrad_students} />
+          <Example title="Alumni" students={alumni}/>
 
           {/* <Example /> */}
         </div>
