@@ -116,11 +116,11 @@ function FeaturesMobile() {
   };
 
   return (
-    <div className="mt-20 px-4 sm:px-6 lg:hidden">
+    <div className="mt-8 px-4 sm:px-6 lg:hidden">
       <div className="relative">
         <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl" isActive />
-        <div className="relative mt-10 pb-10">
-          <div className="absolute bottom-0 top-8 rounded-xl bg-slate-200" />
+        <div className="relative mt-6 pb-6">
+          <div className="absolute bottom-0 top-6 rounded-xl bg-slate-200" />
           <div className="relative mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
             {!features[currentIndex].video ? (
               <Image
@@ -145,7 +145,7 @@ function FeaturesMobile() {
         </div>
         
         {/* Mobile Navigation - Below content to avoid overlap */}
-        <div className="flex justify-center items-center mt-6 space-x-4">
+        <div className="flex justify-center items-center mt-3 space-x-4">
           <button
             onClick={goToPrevious}
             disabled={currentIndex === 0}
@@ -202,7 +202,7 @@ function FeaturesDesktop() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex} as="div" className="hidden lg:mt-20 lg:block">
+    <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex} as="div" className="hidden lg:mt-8 lg:block">
       <Tab.List className="grid grid-cols-3 gap-x-8">
         {features.map((feature, featureIndex) => (
           <Feature
@@ -221,7 +221,7 @@ function FeaturesDesktop() {
           />
         ))}
       </Tab.List>
-      <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
+      <Tab.Panels className="relative mt-12 overflow-hidden rounded-4xl bg-slate-200 px-10 py-8 xl:px-12">
         <div className="relative w-full">
           {features.map((feature, featureIndex) => (
             <Tab.Panel
@@ -303,7 +303,7 @@ export function SecondaryFeatures() {
     <section
       id="projects"
       aria-label="Features for simplifying everyday business tasks"
-      className="pt-20 pb-14 sm:pb-20 sm:pt-32 lg:pb-32"
+      className="pt-8 pb-6 sm:pb-8 sm:pt-12 lg:pb-12"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">

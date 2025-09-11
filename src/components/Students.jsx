@@ -310,19 +310,19 @@ function Example({ title, students, bgColor = "bg-white" }) {
   }
 
   return (
-    <div className={`rounded-2xl ${bgColor} py-8 sm:py-12 transition-all duration-300`}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className={`rounded-xl ${bgColor} py-4 sm:py-6 transition-all duration-300`}>
+      <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="mx-auto max-w-2xl sm:text-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center justify-center w-full group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-2"
+            className="flex items-center justify-center w-full group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1"
             aria-expanded={isOpen}
           >
-            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl group-hover:text-blue-600 transition-colors">
-              {title} Students ({filteredStudents.length})
+            <h2 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl group-hover:text-blue-600 transition-colors">
+              {title} {title !== 'Alumni' && 'Students'} ({filteredStudents.length})
             </h2>
             <svg 
-              className={`ml-3 w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+              className={`ml-2 w-5 h-5 text-gray-600 group-hover:text-blue-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -335,11 +335,11 @@ function Example({ title, students, bgColor = "bg-white" }) {
         {isOpen && (
           <ul
             role="list"
-            className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden animate-fade-in"
+            className="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-6 xl:max-w-none overflow-hidden animate-fade-in"
           >
             {filteredStudents.map((person) => (
-            <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <div className="h-48 w-48 sm:h-60 sm:w-60 flex-none overflow-hidden rounded-2xl mx-auto xl:mx-0">
+            <li key={person.name} className="flex flex-col gap-4 xl:flex-row">
+              <div className="h-32 w-32 sm:h-40 sm:w-40 flex-none overflow-hidden rounded-xl mx-auto xl:mx-0">
                 <Image
                   className="h-full w-full object-cover"
                   src={person.imageUrl}
@@ -349,10 +349,10 @@ function Example({ title, students, bgColor = "bg-white" }) {
                 />
               </div>
               <div className="flex-auto">
-                <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                <h3 className="text-base font-semibold leading-6 tracking-tight text-gray-900">
                   {person.name}
                 </h3>
-                <p className="text-base leading-7 text-gray-600">
+                <p className="text-sm leading-5 text-gray-600">
                   {person.role}, {person.degree}
                 </p>
                 { person.link &&
@@ -360,7 +360,7 @@ function Example({ title, students, bgColor = "bg-white" }) {
                     {person.link}
                   </p>
                 }
-                <p className="mt-6 text-base leading-7 text-gray-600">
+                <p className="mt-3 text-sm leading-6 text-gray-600">
                   {person.bio}
                 </p>
               </div>
@@ -378,19 +378,19 @@ export function Students() {
     <section
       id="students"
       aria-label="Students"
-      className="bg-slate-900 py-20 sm:py-32"
+      className="bg-slate-900 py-12 sm:py-16"
     >
       <Container className="relative">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl font-display mb-6">
-            Our Research Team
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-display mb-4">
+            Student Reseachers
           </h1>
           <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-7">
             Meet the diverse team of researchers, students, and alumni advancing neuroscience through innovative technology and dedicated research.
           </p>
         </div>
         
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-4">
           <Example title="Medical" students={medical_students} bgColor="bg-white" />
           <Example title="PhD" students={phd_students} bgColor="bg-white" />
           <Example title="Master's" students={masters_students} bgColor="bg-white" />

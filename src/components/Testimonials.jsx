@@ -62,7 +62,7 @@ const reserachCoordinators = [
 
 function Example() {
   return (
-    <div className="bg-white py-24 sm:py-24 rounded-2xl">
+    <div className="bg-white py-10 sm:py-12 rounded-2xl">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Researchers</h2>
@@ -73,7 +73,7 @@ function Example() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
+          className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
         >
           {researchers.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
@@ -93,7 +93,7 @@ function Example() {
           ))}
         </ul>
       </div>
-      <div className="mx-auto pt-20 max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto pt-8 max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Research Coordinators</h2>
           {/* <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -103,7 +103,7 @@ function Example() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
+          className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
         >
           {reserachCoordinators.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
@@ -132,7 +132,7 @@ export function Testimonials() {
     <section
       id="researchers"
       aria-label="What our customers are saying"
-      className="relative overflow-hidden bg-[#13BFD5] py-32"
+      className="relative overflow-hidden bg-[#13BFD5] py-12 sm:py-16"
     >
       <Image
         className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"

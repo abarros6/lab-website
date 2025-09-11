@@ -3,7 +3,6 @@ import Image from 'next/image'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import bgTest from '@/images/backgroundTest.svg'
 import screenshotImage from '@/images/neuro.jpg'
 import surgicalSim from '@/images/surgicalSim.jpg'
 import oculus from '@/images/oculus2.jpg'
@@ -60,12 +59,12 @@ function FeaturesMobile() {
   };
 
   return (
-    <div className="mt-20 lg:hidden">
+    <div className="mt-16 lg:hidden">
       <div className="relative px-4 sm:px-6">
-        <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl mb-10" isActive />
+        <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl mb-8" isActive />
         <div className="relative">
           <div className="absolute bg-slate-200 rounded-xl" />
-          <div className="relative pt-8 pb-10 px-4 sm:px-6">
+          <div className="relative pt-6 pb-8 px-4 sm:px-6">
             <div className="mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
               <Image
                 className="w-full h-auto"
@@ -78,7 +77,7 @@ function FeaturesMobile() {
         </div>
         
         {/* Mobile Navigation - Below content to avoid overlap */}
-        <div className="flex justify-center items-center mt-6 space-x-4">
+        <div className="flex justify-center items-center mt-4 space-x-4">
           <button
             onClick={goToPrevious}
             disabled={currentIndex === 0}
@@ -143,16 +142,16 @@ function FeaturesDesktop() {
   };
 
   return (
-    <div className="hidden lg:mt-20 lg:block">
+    <div className="hidden lg:mt-16 lg:block">
       <div className="grid grid-cols-12 gap-8 items-center">
         {/* Feature Navigation - Left Side */}
-        <div className="col-span-5 space-y-6">
+        <div className="col-span-4 space-y-4">
           {features.map((feature, featureIndex) => (
             <button
               key={feature.title}
               onClick={() => setSelectedIndex(featureIndex)}
               className={clsx(
-                'w-full text-left p-8 rounded-3xl transition-all duration-300 border-2',
+                'w-full text-left p-6 rounded-2xl transition-all duration-300 border-2',
                 featureIndex === selectedIndex
                   ? 'bg-white/20 border-white/40 shadow-2xl'
                   : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
@@ -172,8 +171,8 @@ function FeaturesDesktop() {
         </div>
 
         {/* Feature Content - Right Side */}
-        <div className="col-span-7 relative">
-          <div className="relative overflow-hidden rounded-2xl bg-white/10 p-8">
+        <div className="col-span-8 relative">
+          <div className="relative overflow-hidden rounded-2xl bg-white/10 p-6">
             <div className="relative w-full">
               {features.map((feature, featureIndex) => (
                 <div
@@ -198,7 +197,7 @@ function FeaturesDesktop() {
           </div>
           
           {/* Navigation Arrows - Below content */}
-          <div className="flex justify-center items-center mt-6 space-x-4">
+          <div className="flex justify-center items-center mt-4 space-x-4">
             <button
               onClick={goToPrevious}
               disabled={selectedIndex === 0}
@@ -257,16 +256,10 @@ export function PrimaryFeatures() {
     <section
       id="about"
       aria-label="Features for running your books"
-      className="relative overflow-hidden text-custom-blue pt-20 pb-28 sm:py-32"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-custom-blue pt-16 pb-20 sm:pt-20 sm:pb-24"
     >
-      <Image
-        className="absolute top-1/2 left-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
-        src={bgTest}
-        alt=""
-        width={2245}
-        height={1636}
-        unoptimized
-      />
+      <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600/90 via-blue-700/90 to-blue-800/90"></div>
+      <div className="absolute inset-0 w-full h-full bg-blue-700 opacity-10"></div>
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">

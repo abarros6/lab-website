@@ -150,7 +150,7 @@ export default function Example() {
   return (
     <div className="relative isolate bg-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-        <div className="relative px-6 pt-24 pb-20 sm:pt-32 lg:static lg:py-48 lg:px-8">
+        <div className="relative px-6 pt-8 pb-8 sm:pt-12 lg:static lg:py-16 lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
               {/* <svg
@@ -248,11 +248,11 @@ export default function Example() {
         <form
           action="#"
           method="POST"
-          className="px-6 pb-24 pt-20 sm:pb-32 lg:py-48 lg:px-8"
+          className="px-6 pb-8 pt-8 sm:pb-12 lg:py-16 lg:px-8"
           onSubmit={handleSubmit}
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-            <div className="grid grid-cols-1 gap-y-6 gap-x-8 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2">
               <div>
                 <label
                   htmlFor="first-name"
@@ -355,11 +355,11 @@ export default function Example() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex justify-end">
+            <div className="mt-8 flex justify-center">
               <button
                 type="submit"
                 disabled={isLoading}
-                className="rounded-md bg-[#13BFD5] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#008CA2] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-[#13BFD5] px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-[#008CA2] focus-visible:outline align-middle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 {isLoading ? 'Submitting...' : 'Submit'}
               </button>

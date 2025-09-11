@@ -18,7 +18,7 @@ import UWOLogo from '@/images/logos/uwo.png'
 
 export function Hero() {
   return (
-    <Container className="pt-10 pb-16 text-center lg:pt-10">
+    <Container className="pt-8 pb-12 text-center lg:pt-8">
       <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
         Neuroimaging and Surgical {' '}
         <span className="text-custom-blue relative whitespace-nowrap">
@@ -37,7 +37,7 @@ export function Hero() {
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
       Brain3DViz is a research lab at Western University, London, ON, Canada. With a diverse mix of research assistants, Master&apos;s, and PhD students, our main research interests concern neurosurgery, neuroimaging, 3D visualizations, and augmented reality.
       </p>
-      <div className="mt-24 lg:mt-24">
+      <div className="mt-16 lg:mt-16">
         <p className="font-display text-base text-slate-900">
           Projects and Research supported by 
         </p>
