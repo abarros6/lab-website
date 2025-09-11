@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
@@ -105,106 +105,195 @@ function Feature({ feature, isActive, className, ...props }) {
 }
 
 function FeaturesMobile() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => Math.min(features.length - 1, prev + 1));
+  };
+
   return (
-    <div className="-mx-4 mt-20 flex flex-col gap-y-10 overflow-hidden px-4 sm:-mx-6 sm:px-6 lg:hidden">
-      {features.map((feature) => (
-        <div key={feature.name}>
-          <Feature feature={feature} className="mx-auto max-w-2xl" isActive />
-          <div className="relative mt-10 pb-10">
-            <div className="absolute -inset-x-4 bottom-0 top-8 bg-slate-200 sm:-inset-x-6" />
-            <div className="relative mx-auto w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-              {!feature.video ? (
-                <Image
-                  className="w-full"
-                  src={feature.image}
-                  alt=""
-                  sizes="52.75rem"
-                />
-              ) : (
-                <video
-                  src={feature.image}
-                  className="w-full"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              )}
-            </div>
+    <div className="mt-20 px-4 sm:px-6 lg:hidden">
+      <div className="relative">
+        <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl" isActive />
+        <div className="relative mt-10 pb-10">
+          <div className="absolute bottom-0 top-8 rounded-xl bg-slate-200" />
+          <div className="relative mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
+            {!features[currentIndex].video ? (
+              <Image
+                className="w-full h-auto"
+                src={features[currentIndex].image}
+                alt=""
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 52.75rem"
+              />
+            ) : (
+              <video
+                src={features[currentIndex].image}
+                className="w-full h-auto"
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            )}
           </div>
+          
+          {/* Mobile Navigation Arrows - positioned below content on small screens */}
         </div>
-      ))}
+        
+        {/* Mobile Navigation - Below content to avoid overlap */}
+        <div className="flex justify-center items-center mt-6 space-x-4">
+          <button
+            onClick={goToPrevious}
+            disabled={currentIndex === 0}
+            className={clsx(
+              "p-3 rounded-full transition-all duration-200",
+              currentIndex === 0
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+                : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+            )}
+            aria-label="Previous feature"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          {/* Mobile Indicators */}
+          <div className="flex space-x-2">
+            {features.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={clsx(
+                  "w-3 h-3 rounded-full transition-colors",
+                  index === currentIndex ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"
+                )}
+                aria-label={`Go to feature ${index + 1}`}
+              />
+            ))}
+          </div>
+          
+          <button
+            onClick={goToNext}
+            disabled={currentIndex === features.length - 1}
+            className={clsx(
+              "p-3 rounded-full transition-all duration-200",
+              currentIndex === features.length - 1
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+                : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+            )}
+            aria-label="Next feature"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
 
 function FeaturesDesktop() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   return (
-    <Tab.Group as="div" className="hidden lg:mt-20 lg:block">
-      {({ selectedIndex }) => (
-        <>
-          <Tab.List className="grid grid-cols-3 gap-x-8">
-            {features.map((feature, featureIndex) => (
-              <Feature
-                key={feature.name}
-                feature={{
-                  ...feature,
-                  name: (
-                    <Tab className="[&:not(:focus-visible)]:focus:outline-none">
-                      <span className="absolute inset-0" />
-                      {feature.name}
-                    </Tab>
-                  ),
-                }}
-                isActive={featureIndex === selectedIndex}
-                className="relative"
-              />
-            ))}
-          </Tab.List>
-          <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
-            <div className="-mx-5 flex">
-              {features.map((feature, featureIndex) => (
-                <Tab.Panel
-                  static
-                  key={feature.name}
-                  className={clsx(
-                    'px-5 transition duration-500 ease-in-out [&:not(:focus-visible)]:focus:outline-none',
-                    featureIndex !== selectedIndex && 'opacity-60'
-                  )}
-                  style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
-                  aria-hidden={featureIndex !== selectedIndex}
-                >
-                  <div className="w-[52.75rem] overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
-                    {!feature.video ? (
-                      <Image
-                        className="w-full"
-                        src={feature.image}
-                        alt=""
-                        sizes="52.75rem"
-                        
-                      />
-                    ) : (
-                      <video
-                        src={feature.image}
-                        //width="640" 
-                        //height="480"
-                        type="video/mp4"
-                        controls
-                        className="w-full"
-                        autoPlay
-                        loop
-                        muted
-                        //playsInline
-                      />
-                    )}
-                  </div>
-                </Tab.Panel>
-              ))}
-            </div>
-            <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
-          </Tab.Panels>
-        </>
-      )}
+    <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex} as="div" className="hidden lg:mt-20 lg:block">
+      <Tab.List className="grid grid-cols-3 gap-x-8">
+        {features.map((feature, featureIndex) => (
+          <Feature
+            key={feature.name}
+            feature={{
+              ...feature,
+              name: (
+                <Tab className="[&:not(:focus-visible)]:focus:outline-none">
+                  <span className="absolute inset-0" />
+                  {feature.name}
+                </Tab>
+              ),
+            }}
+            isActive={featureIndex === selectedIndex}
+            className="relative"
+          />
+        ))}
+      </Tab.List>
+      <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
+        <div className="relative w-full">
+          {features.map((feature, featureIndex) => (
+            <Tab.Panel
+              static
+              key={feature.name}
+              className={clsx(
+                'w-full transition duration-500 ease-in-out [&:not(:focus-visible)]:focus:outline-none',
+                featureIndex !== selectedIndex && 'absolute inset-0 opacity-0',
+                featureIndex === selectedIndex && 'opacity-100'
+              )}
+              aria-hidden={featureIndex !== selectedIndex}
+            >
+              <div className="w-full max-w-4xl mx-auto overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
+                {!feature.video ? (
+                  <Image
+                    className="w-full h-auto"
+                    src={feature.image}
+                    alt=""
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 52.75rem"
+                  />
+                ) : (
+                  <video
+                    src={feature.image}
+                    type="video/mp4"
+                    controls
+                    className="w-full h-auto"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                )}
+              </div>
+            </Tab.Panel>
+          ))}
+        </div>
+        
+        {/* Navigation Arrows */}
+        <button
+          onClick={() => setSelectedIndex(Math.max(0, selectedIndex - 1))}
+          disabled={selectedIndex === 0}
+          className={clsx(
+            "absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full transition-all duration-200 z-10",
+            selectedIndex === 0
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+              : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+          )}
+          aria-label="Previous feature"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        
+        <button
+          onClick={() => setSelectedIndex(Math.min(features.length - 1, selectedIndex + 1))}
+          disabled={selectedIndex === features.length - 1}
+          className={clsx(
+            "absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full transition-all duration-200 z-10",
+            selectedIndex === features.length - 1
+              ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+              : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+          )}
+          aria-label="Next feature"
+        >
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+        
+        <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
+      </Tab.Panels>
     </Tab.Group>
   )
 }

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useState } from 'react'
 
 import { Container } from '@/components/Container'
 import avatarImage1 from '@/images/avatars/avatar-1.png'
@@ -295,26 +296,56 @@ const undergrad_students = [
   }
 ]
 
-function Example({ title, students }) {
+function Example({ title, students, bgColor = "bg-white" }) {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  // Filter out students with blank images and empty bios
+  const filteredStudents = students.filter(person => 
+    person.imageUrl !== Blank && person.bio && person.bio.trim() !== ''
+  );
+
+  // Don't render the section if no students remain after filtering
+  if (filteredStudents.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="rounded-2xl bg-white py-24 sm:py-24">
+    <div className={`rounded-2xl ${bgColor} py-8 sm:py-12 transition-all duration-300`}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {title} Students
-          </h2>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center justify-center w-full group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-2"
+            aria-expanded={isOpen}
+          >
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl group-hover:text-blue-600 transition-colors">
+              {title} Students ({filteredStudents.length})
+            </h2>
+            <svg 
+              className={`ml-3 w-6 h-6 text-gray-600 group-hover:text-blue-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
         </div>
-        <ul
-          role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
-        >
-          {students.map((person) => (
+        
+        {isOpen && (
+          <ul
+            role="list"
+            className="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-16 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden animate-fade-in"
+          >
+            {filteredStudents.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <div className="h-60 w-60 flex-none overflow-hidden rounded-2xl">
+              <div className="h-48 w-48 sm:h-60 sm:w-60 flex-none overflow-hidden rounded-2xl mx-auto xl:mx-0">
                 <Image
                   className="h-full w-full object-cover"
                   src={person.imageUrl}
                   alt=""
+                  width={240}
+                  height={240}
                 />
               </div>
               <div className="flex-auto">
@@ -335,7 +366,8 @@ function Example({ title, students }) {
               </div>
             </li>
           ))}
-        </ul>
+          </ul>
+        )}
       </div>
     </div>
   )
@@ -349,14 +381,21 @@ export function Students() {
       className="bg-slate-900 py-20 sm:py-32"
     >
       <Container className="relative">
-        <div className="flex flex-col gap-6">
-          <Example title="Medical" students={medical_students} />
-          <Example title="PhD" students={phd_students} />
-          <Example title="Master's" students={masters_students} />
-          <Example title="Bachelor's" students={undergrad_students} />
-          <Example title="Alumni" students={alumni}/>
-
-          {/* <Example /> */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl font-display mb-6">
+            Our Research Team
+          </h1>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-7">
+            Meet the diverse team of researchers, students, and alumni advancing neuroscience through innovative technology and dedicated research.
+          </p>
+        </div>
+        
+        <div className="flex flex-col gap-8">
+          <Example title="Medical" students={medical_students} bgColor="bg-white" />
+          <Example title="PhD" students={phd_students} bgColor="bg-white" />
+          <Example title="Master's" students={masters_students} bgColor="bg-white" />
+          <Example title="Bachelor's" students={undergrad_students} bgColor="bg-white" />
+          <Example title="Alumni" students={alumni} bgColor="bg-white"/>
         </div>
       </Container>
     </section>

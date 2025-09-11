@@ -1,18 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
-import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
-import backgroundImage from '@/images/background-features.jpg'
 import bgTest from '@/images/backgroundTest.svg'
-import ex1 from '@/images/screenshots/example1.webp'
-
-import screenshotExpenses from '@/images/screenshots/expenses.png'
-import screenshotPayroll from '@/images/screenshots/payroll.png'
-import screenshotReporting from '@/images/screenshots/reporting.png'
-import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
-
 import screenshotImage from '@/images/neuro.jpg'
 import surgicalSim from '@/images/surgicalSim.jpg'
 import oculus from '@/images/oculus2.jpg'
@@ -36,27 +27,232 @@ const features = [
       'Our 3D visualization software allows for dynamic and interactive exploration of complex data sets, enabling researchers to gain deeper insights and make more informed decisions. With our user-friendly interface and advanced visualizations, you can easily identify patterns, relationships, and outliers that would be difficult to spot otherwise.',
     image: oculus,
   },
-  
 ]
 
+function Feature({ feature, isActive, className, ...props }) {
+  return (
+    <div
+      className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
+      {...props}
+    >
+      <h3
+        className={clsx(
+          'text-2xl font-bold tracking-tight',
+          isActive ? 'text-white' : 'text-blue-100'
+        )}
+      >
+        {feature.title}
+      </h3>
+      <p className="mt-4 text-base leading-relaxed text-blue-50">{feature.description}</p>
+    </div>
+  )
+}
+
+function FeaturesMobile() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) => Math.min(features.length - 1, prev + 1));
+  };
+
+  return (
+    <div className="mt-20 lg:hidden">
+      <div className="relative px-4 sm:px-6">
+        <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl mb-10" isActive />
+        <div className="relative">
+          <div className="absolute bg-slate-200 rounded-xl" />
+          <div className="relative pt-8 pb-10 px-4 sm:px-6">
+            <div className="mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
+              <Image
+                className="w-full h-auto"
+                src={features[currentIndex].image}
+                alt=""
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 52.75rem"
+              />
+            </div>
+          </div>
+        </div>
+        
+        {/* Mobile Navigation - Below content to avoid overlap */}
+        <div className="flex justify-center items-center mt-6 space-x-4">
+          <button
+            onClick={goToPrevious}
+            disabled={currentIndex === 0}
+            className={clsx(
+              "p-3 rounded-full transition-all duration-200",
+              currentIndex === 0
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+                : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+            )}
+            aria-label="Previous feature"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          {/* Mobile Indicators */}
+          <div className="flex space-x-2">
+            {features.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={clsx(
+                  "w-3 h-3 rounded-full transition-colors",
+                  index === currentIndex ? "bg-blue-600" : "bg-gray-300 hover:bg-gray-400"
+                )}
+                aria-label={`Go to feature ${index + 1}`}
+              />
+            ))}
+          </div>
+          
+          <button
+            onClick={goToNext}
+            disabled={currentIndex === features.length - 1}
+            className={clsx(
+              "p-3 rounded-full transition-all duration-200",
+              currentIndex === features.length - 1
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+                : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+            )}
+            aria-label="Next feature"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function FeaturesDesktop() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setSelectedIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const goToNext = () => {
+    setSelectedIndex((prev) => Math.min(features.length - 1, prev + 1));
+  };
+
+  return (
+    <div className="hidden lg:mt-20 lg:block">
+      <div className="grid grid-cols-12 gap-8 items-center">
+        {/* Feature Navigation - Left Side */}
+        <div className="col-span-5 space-y-6">
+          {features.map((feature, featureIndex) => (
+            <button
+              key={feature.title}
+              onClick={() => setSelectedIndex(featureIndex)}
+              className={clsx(
+                'w-full text-left p-8 rounded-3xl transition-all duration-300 border-2',
+                featureIndex === selectedIndex
+                  ? 'bg-white/20 border-white/40 shadow-2xl'
+                  : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+              )}
+            >
+              <h3 className={clsx(
+                'text-xl font-bold tracking-tight mb-3',
+                featureIndex === selectedIndex ? 'text-white' : 'text-blue-100'
+              )}>
+                {feature.title}
+              </h3>
+              <p className="text-sm text-blue-50 leading-relaxed">
+                {feature.description}
+              </p>
+            </button>
+          ))}
+        </div>
+
+        {/* Feature Content - Right Side */}
+        <div className="col-span-7 relative">
+          <div className="relative overflow-hidden rounded-2xl bg-white/10 p-8">
+            <div className="relative w-full">
+              {features.map((feature, featureIndex) => (
+                <div
+                  key={feature.title}
+                  className={clsx(
+                    'w-full transition duration-500 ease-in-out',
+                    featureIndex !== selectedIndex && 'absolute inset-0 opacity-0',
+                    featureIndex === selectedIndex && 'opacity-100'
+                  )}
+                >
+                  <div className="overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/20 ring-1 ring-slate-500/10">
+                    <Image
+                      className="w-full h-auto"
+                      src={feature.image}
+                      alt=""
+                      sizes="(max-width: 1024px) 90vw, 60rem"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Navigation Arrows - Below content */}
+          <div className="flex justify-center items-center mt-6 space-x-4">
+            <button
+              onClick={goToPrevious}
+              disabled={selectedIndex === 0}
+              className={clsx(
+                "p-3 rounded-full transition-all duration-200",
+                selectedIndex === 0
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+                  : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+              )}
+              aria-label="Previous feature"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            {/* Indicators */}
+            <div className="flex space-x-2">
+              {features.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSelectedIndex(index)}
+                  className={clsx(
+                    "w-3 h-3 rounded-full transition-colors",
+                    index === selectedIndex ? "bg-white" : "bg-white/30 hover:bg-white/50"
+                  )}
+                  aria-label={`Go to feature ${index + 1}`}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={goToNext}
+              disabled={selectedIndex === features.length - 1}
+              className={clsx(
+                "p-3 rounded-full transition-all duration-200",
+                selectedIndex === features.length - 1
+                  ? "bg-gray-300 text-gray-500 cursor-not-allowed opacity-50"
+                  : "bg-white/90 hover:bg-white text-slate-700 hover:text-slate-900 shadow-lg hover:shadow-xl"
+              )}
+              aria-label="Next feature"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function PrimaryFeatures() {
-  let [tabOrientation, setTabOrientation] = useState('horizontal')
-
-  useEffect(() => {
-    let lgMediaQuery = window.matchMedia('(min-width: 1024px)')
-
-    function onMediaQueryChange({ matches }) {
-      setTabOrientation(matches ? 'vertical' : 'horizontal')
-    }
-
-    onMediaQueryChange(lgMediaQuery)
-    lgMediaQuery.addEventListener('change', onMediaQueryChange)
-
-    return () => {
-      lgMediaQuery.removeEventListener('change', onMediaQueryChange)
-    }
-  }, [])
-
   return (
     <section
       id="about"
@@ -86,77 +282,8 @@ export function PrimaryFeatures() {
             neuroscience.
           </p>
         </div>
-
-        <Tab.Group
-          as="div"
-          className="mt-16 grid grid-cols-1 items-center gap-y-2 pt-10 sm:gap-y-6 md:mt-20 lg:grid-cols-12 lg:pt-0"
-          vertical={tabOrientation === 'vertical'}
-        >
-          {({ selectedIndex }) => (
-            <>
-              <div className="-mx-4 flex overflow-x-auto pb-4 sm:mx-0 sm:overflow-visible sm:pb-0 lg:col-span-5">
-                <Tab.List className="relative z-10 flex gap-x-4 whitespace-nowrap px-4 sm:mx-auto sm:px-0 lg:mx-0 lg:block lg:gap-x-0 lg:gap-y-1 lg:whitespace-normal">
-                  {features.map((feature, featureIndex) => (
-                    <div
-                      key={feature.title}
-                      className={clsx(
-                        'group relative rounded-full py-1 px-4 lg:rounded-r-none lg:rounded-l-xl lg:p-6',
-                        selectedIndex === featureIndex
-                          ? 'bg-white lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10'
-                          : 'hover:bg-white/10 lg:hover:bg-white/5'
-                      )}
-                    >
-                      <h3>
-                        <Tab
-                          className={clsx(
-                            'font-display text-lg [&:not(:focus-visible)]:focus:outline-none',
-                            selectedIndex === featureIndex
-                              ? 'text-blue-600 lg:text-white'
-                              : 'text-blue-100 hover:text-white lg:text-white'
-                          )}
-                        >
-                          <span className="absolute inset-0 rounded-full lg:rounded-r-none lg:rounded-l-xl" />
-                          {feature.title}
-                        </Tab>
-                      </h3>
-                      <p
-                        className={clsx(
-                          'mt-2 hidden text-sm lg:block',
-                          selectedIndex === featureIndex
-                            ? 'text-white'
-                            : 'text-blue-100 group-hover:text-white'
-                        )}
-                      >
-                        {feature.description}
-                      </p>
-                    </div>
-                  ))}
-                </Tab.List>
-              </div>
-              <Tab.Panels className="lg:col-span-7">
-                {features.map((feature) => (
-                  <Tab.Panel key={feature.title} unmount={false}>
-                    <div className="relative sm:px-6 lg:hidden">
-                      <div className="absolute -inset-x-4 top-[-6.5rem] bottom-[-4.25rem] bg-white/10 ring-1 ring-inset ring-white/10 sm:inset-x-0 sm:rounded-t-xl" />
-                      <p className="relative mx-auto max-w-2xl text-base text-white sm:text-center">
-                        {feature.description}
-                      </p>
-                    </div>
-                    <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
-                      <Image
-                        className="w-full"
-                        src={feature.image}
-                        alt=""
-                        priority
-                        sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-                      />
-                    </div>
-                  </Tab.Panel>
-                ))}
-              </Tab.Panels>
-            </>
-          )}
-        </Tab.Group>
+        <FeaturesMobile />
+        <FeaturesDesktop />
       </Container>
     </section>
   )

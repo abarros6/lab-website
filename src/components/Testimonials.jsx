@@ -73,11 +73,11 @@ function Example() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
         >
           {researchers.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <div className="h-60 w-60 flex-none overflow-hidden rounded-2xl">
+              <div className="h-48 w-48 sm:h-60 sm:w-60 flex-none overflow-hidden rounded-2xl mx-auto xl:mx-0">
                 <Image
                   className="h-full w-full object-cover"
                   src={person.imageUrl}
@@ -103,11 +103,11 @@ function Example() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
         >
           {reserachCoordinators.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <div className="h-60 w-60 flex-none overflow-hidden rounded-2xl">
+              <div className="h-48 w-48 sm:h-60 sm:w-60 flex-none overflow-hidden rounded-2xl mx-auto xl:mx-0">
                 <Image
                   className="h-full w-full object-cover"
                   src={person.imageUrl}
@@ -135,7 +135,7 @@ export function Testimonials() {
       className="relative overflow-hidden bg-[#13BFD5] py-32"
     >
       <Image
-        className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
         src={backgroundImage}
         alt=""
         width={2347}
