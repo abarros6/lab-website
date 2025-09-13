@@ -105,7 +105,7 @@ export default function Dashboard({children}) {
                             item.current
                               ? 'bg-gray-100 text-gray-900'
                               : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                            'group flex items-center rounded-md px-2 py-2 text-base font-medium'
+                            'group flex items-center rounded-md px-2 py-2 text-sm font-medium'
                           )}
                         >
                           <item.icon
@@ -133,7 +133,7 @@ export default function Dashboard({children}) {
                           />
                         </div>
                         <div className="ml-3">
-                          <p className="text-base font-medium text-gray-700 group-hover:text-gray-900">
+                          <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
                             Tom Cook
                           </p>
                           <p className="text-sm font-medium text-gray-500 group-hover:text-gray-700">

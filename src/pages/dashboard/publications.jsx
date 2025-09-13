@@ -2391,6 +2391,9 @@ const eagleson_Publications = [
   },
 ]
 
+// Export publications data for use in other components
+export { ribaupierre_Publications, eagleson_Publications }
+
 export default function Home() {
   return (
     <Dashboard title={'Publications'}>

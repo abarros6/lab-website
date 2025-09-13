@@ -62,7 +62,7 @@ const reserachCoordinators = [
 
 function Example() {
   return (
-    <div className="bg-white py-24 sm:py-24 rounded-2xl">
+    <div className="bg-white py-10 sm:py-12 rounded-2xl">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Researchers</h2>
@@ -73,11 +73,11 @@ function Example() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+          className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
         >
           {researchers.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <div className="h-60 w-60 flex-none overflow-hidden rounded-2xl">
+              <div className="h-48 w-48 sm:h-60 sm:w-60 flex-none overflow-hidden rounded-2xl mx-auto xl:mx-0">
                 <Image
                   className="h-full w-full object-cover"
                   src={person.imageUrl}
@@ -86,14 +86,14 @@ function Example() {
               </div>
               <div className="flex-auto">
                 <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">{person.name}</h3>
-                <p className="text-base leading-7 text-gray-600">{person.role}</p>
-                <p className="mt-6 text-base leading-7 text-gray-600">{person.bio}</p>
+                <p className="text-sm leading-7 text-gray-600">{person.role}</p>
+                <p className="mt-6 text-sm leading-7 text-gray-600">{person.bio}</p>
               </div>
             </li>
           ))}
         </ul>
       </div>
-      <div className="mx-auto pt-20 max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto pt-8 max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Research Coordinators</h2>
           {/* <p className="mt-6 text-lg leading-8 text-gray-600">
@@ -103,11 +103,11 @@ function Example() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
+          className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none overflow-hidden"
         >
           {reserachCoordinators.map((person) => (
             <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <div className="h-60 w-60 flex-none overflow-hidden rounded-2xl">
+              <div className="h-48 w-48 sm:h-60 sm:w-60 flex-none overflow-hidden rounded-2xl mx-auto xl:mx-0">
                 <Image
                   className="h-full w-full object-cover"
                   src={person.imageUrl}
@@ -116,8 +116,8 @@ function Example() {
               </div>
               <div className="flex-auto">
                 <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">{person.name}</h3>
-                <p className="text-base leading-7 text-gray-600">{person.role}</p>
-                <p className="mt-6 text-base leading-7 text-gray-600">{person.bio}</p>
+                <p className="text-sm leading-7 text-gray-600">{person.role}</p>
+                <p className="mt-6 text-sm leading-7 text-gray-600">{person.bio}</p>
               </div>
             </li>
           ))}
@@ -132,10 +132,10 @@ export function Testimonials() {
     <section
       id="researchers"
       aria-label="What our customers are saying"
-      className="relative overflow-hidden bg-[#13BFD5] py-32"
+      className="relative overflow-hidden bg-[#13BFD5] py-12 sm:py-16"
     >
       <Image
-        className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
         src={backgroundImage}
         alt=""
         width={2347}

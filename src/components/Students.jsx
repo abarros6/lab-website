@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useState } from 'react'
 
 import { Container } from '@/components/Container'
 import avatarImage1 from '@/images/avatars/avatar-1.png'
@@ -54,32 +55,7 @@ const Link = ({ site, text }) => {
   )
 }
 
-const medical_students = [
-  {
-    name:'Mashal Ahmed',
-    role: 'Medical Student',
-    degree: 'MD',
-    imageUrl: Mashal,
-    bio:'Mashal is a second-year medical student at Western. She earned her BSc from the University of Waterloo and her MSc from the University of Toronto. She is currently working on a project which explores the use of virtual reality in paediatric patients prior to and following neurosurgical procedures. Beyond academics, Mashal loves trying out new baking recipes and painting.'
-  },
-  {
-    name:'Renee-Marie Ragguett',
-    role: 'Medical Student',
-    degree: 'MD',
-    imageUrl: Blank,
-    bio:''
-  },
-  {
-    name:'Beryl Chung',
-    role: 'Medical Student',
-    degree: 'BScH, PhD, MD Candidate 2026',
-    imageUrl: Beryl,
-    bio:'Beryl is a medical student at Western University. She completed her PhD in Biomedical Sciences and Neuroscience. She is currently working on projects exploring long-term post-surgical outcomes in craniosynostosis and infantile hydrocephalus. Her work involves the use of fMRI and behavioural testing to better understand recovery and developmental trajectories. Outside of her academic pursuits, she enjoys yoga and pottery.'
-  }
-]
-
-
-const phd_students = [
+const alumni = [
   {
     name: 'Denis Kikinov',
     role: 'Software Engineering',
@@ -95,30 +71,6 @@ const phd_students = [
     bio:'My research is focused on skill development in cerebral angiography coiling procedures using haptic simulation. During an endovascular intervention with a cerebral aneurysm, an interventionalist manipulates a set of wires and catheters in order to fill and stabilize the aneurysmal space. This procedure uses limited fluoroscopy monitoring to navigate a 3D endovascular network – a combination of obstacles that make the procedure difficult. Currently, fellowships specializing in teaching these procedures are limited to offering most technical training in the operating room. With the appropriate implementation of simulation, it would be advantageous to target and develop core procedural skills and competencies.'
   },
   {
-    name:'Xiang Li',
-    role: 'Software Engineering',
-    degree: 'PhD',
-    imageUrl: Xiang,
-    bio:`I completed my undergraduate studies in Computer Engineering at Western. In my third year, I worked with Professor Roy on Bill & Barbara Etherington Undergraduate summer Research Fellowship Project and later collaborated with him again on my fourth-year capstone project. In the summer of 2024, I joined this Lab and began pursuing a PhD. My current research mainly focuses on applying technologies such as AI, VR, FPGA, and robotics to the field of neurosurgery. So far, I have developed some VR-based simulators, and I am now working on applications involving AI and FPGA. Following that, I will begin research related to robotics.`
-  },
-  {
-    name:'James Nicholls',
-    role: 'Software Engineering',
-    degree: 'PhD',
-    imageUrl: James,
-    bio:`James graduated from Western's Software Engineering program with Distinction and is currently a PhD student. He has contributed to many projects in the lab involving AR/VR and Unreal Engine. He has also deployed valuable infrastructure used to store and share projects internally within the lab. His research focuses on using AI to develop Personal Life Automations, a new kind of software that securely and privately interconnects all aspects of one's digital life through simple input-output flows. He aspires to learn all that he can to make technology convenient — and not confusing — for everyone.`
-  },   
-  {
-    name: 'Maryum Khan',
-    role: 'Neuroscience',
-    degree: 'PhD',
-    imageUrl: Blank,
-    bio: 'Maryum is interested in pediatric neurorehabilitation and the use of technology to support cognitive development in children with infantile hydrocephalus. Her current research investigates whether interactive tablet and immersive virtual reality (VR) games can help improve visuospatial skills in this population. She will compare the effects of VR and tablet-based training, alongside behavioural assessments and resting-state fMRI. This work aims to explore brain plasticity and inform the development of engaging, tech-based tools for long-term cognitive support. ',
-  },
-]
-
-const masters_students = [
-  {
     name: 'Juan Santiago Bottan',
     role: 'Neurosurgery',
     degree: 'MSc',
@@ -131,13 +83,6 @@ const masters_students = [
     degree: 'MSc',
     imageUrl: Blank,
     bio: '',
-  },
-  {
-    name: 'Parjanya Parikh',
-    role: 'Neuroscience',
-    degree: 'MSc',
-    imageUrl: Parjanya,
-    bio: 'Parjanya Parikh is currently researching the long-term effects of shunt-treated hydrocephalus in school-age children, with a particular emphasis on working memory development. Using neuroimaging methods, Parjanya is investigating how early neurosurgical interventions shape cognitive outcomes and brain connectivity patterns, with the goal of informing both clinical care and educational support strategies.',
   },
   {
     name: 'Virat Tripathi',
@@ -180,6 +125,65 @@ const masters_students = [
     degree: 'MESc',
     imageUrl: Blank,
     bio: '',
+  }
+]
+
+const medical_students = [
+  {
+    name:'Mashal Ahmed',
+    role: 'Medical Student',
+    degree: 'MD',
+    imageUrl: Mashal,
+    bio:'Mashal is a second-year medical student at Western. She earned her BSc from the University of Waterloo and her MSc from the University of Toronto. She is currently working on a project which explores the use of virtual reality in paediatric patients prior to and following neurosurgical procedures. Beyond academics, Mashal loves trying out new baking recipes and painting.'
+  },
+  {
+    name:'Renee-Marie Ragguett',
+    role: 'Medical Student',
+    degree: 'MD',
+    imageUrl: Blank,
+    bio:''
+  },
+  {
+    name:'Beryl Chung',
+    role: 'Medical Student',
+    degree: 'BScH, PhD, MD Candidate 2026',
+    imageUrl: Beryl,
+    bio:'Beryl is a medical student at Western University. She completed her PhD in Biomedical Sciences and Neuroscience. She is currently working on projects exploring long-term post-surgical outcomes in craniosynostosis and infantile hydrocephalus. Her work involves the use of fMRI and behavioural testing to better understand recovery and developmental trajectories. Outside of her academic pursuits, she enjoys yoga and pottery.'
+  }
+]
+
+
+const phd_students = [
+  {
+    name:'Xiang Li',
+    role: 'Software Engineering',
+    degree: 'PhD',
+    imageUrl: Xiang,
+    bio:`I completed my undergraduate studies in Computer Engineering at Western. In my third year, I worked with Professor Roy on Bill & Barbara Etherington Undergraduate summer Research Fellowship Project and later collaborated with him again on my fourth-year capstone project. In the summer of 2024, I joined this Lab and began pursuing a PhD. My current research mainly focuses on applying technologies such as AI, VR, FPGA, and robotics to the field of neurosurgery. So far, I have developed some VR-based simulators, and I am now working on applications involving AI and FPGA. Following that, I will begin research related to robotics.`
+  },
+  {
+    name:'James Nicholls',
+    role: 'Software Engineering',
+    degree: 'PhD',
+    imageUrl: James,
+    bio:`James graduated from Western's Software Engineering program with Distinction and is currently a PhD student. He has contributed to many projects in the lab involving AR/VR and Unreal Engine. He has also deployed valuable infrastructure used to store and share projects internally within the lab. His research focuses on using AI to develop Personal Life Automations, a new kind of software that securely and privately interconnects all aspects of one's digital life through simple input-output flows. He aspires to learn all that he can to make technology convenient — and not confusing — for everyone.`
+  },   
+  {
+    name: 'Maryum Khan',
+    role: 'Neuroscience',
+    degree: 'PhD',
+    imageUrl: Blank,
+    bio: 'Maryum is interested in pediatric neurorehabilitation and the use of technology to support cognitive development in children with infantile hydrocephalus. Her current research investigates whether interactive tablet and immersive virtual reality (VR) games can help improve visuospatial skills in this population. She will compare the effects of VR and tablet-based training, alongside behavioural assessments and resting-state fMRI. This work aims to explore brain plasticity and inform the development of engaging, tech-based tools for long-term cognitive support. ',
+  },
+]
+
+const masters_students = [
+  {
+    name: 'Parjanya Parikh',
+    role: 'Neuroscience',
+    degree: 'MSc',
+    imageUrl: Parjanya,
+    bio: 'Parjanya Parikh is currently researching the long-term effects of shunt-treated hydrocephalus in school-age children, with a particular emphasis on working memory development. Using neuroimaging methods, Parjanya is investigating how early neurosurgical interventions shape cognitive outcomes and brain connectivity patterns, with the goal of informing both clinical care and educational support strategies.',
   },
   {
     name: 'Matthew Peck',
@@ -292,33 +296,63 @@ const undergrad_students = [
   }
 ]
 
-function Example({ title, students }) {
+function Example({ title, students, bgColor = "bg-white" }) {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  // Filter out students with blank images and empty bios
+  const filteredStudents = students.filter(person => 
+    person.imageUrl !== Blank && person.bio && person.bio.trim() !== ''
+  );
+
+  // Don't render the section if no students remain after filtering
+  if (filteredStudents.length === 0) {
+    return null;
+  }
+
   return (
-    <div className="rounded-2xl bg-white py-24 sm:py-24">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className={`rounded-xl ${bgColor} py-4 sm:py-6 transition-all duration-300`}>
+      <div className="mx-auto max-w-7xl px-4 lg:px-6">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            {title} Students
-          </h2>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center justify-center w-full group focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg p-1"
+            aria-expanded={isOpen}
+          >
+            <h2 className="text-lg font-bold tracking-tight text-gray-900 sm:text-xl group-hover:text-blue-600 transition-colors">
+              {title} {title !== 'Alumni' && 'Students'} ({filteredStudents.length})
+            </h2>
+            <svg 
+              className={`ml-2 w-5 h-5 text-gray-600 group-hover:text-blue-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
         </div>
-        <ul
-          role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none"
-        >
-          {students.map((person) => (
-            <li key={person.name} className="flex flex-col gap-6 xl:flex-row">
-              <div className="h-60 w-60 flex-none overflow-hidden rounded-2xl">
+        
+        {isOpen && (
+          <ul
+            role="list"
+            className="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-6 xl:max-w-none overflow-hidden animate-fade-in"
+          >
+            {filteredStudents.map((person) => (
+            <li key={person.name} className="flex flex-col gap-4 xl:flex-row">
+              <div className="h-32 w-32 sm:h-40 sm:w-40 flex-none overflow-hidden rounded-xl mx-auto xl:mx-0">
                 <Image
                   className="h-full w-full object-cover"
                   src={person.imageUrl}
                   alt=""
+                  width={240}
+                  height={240}
                 />
               </div>
               <div className="flex-auto">
-                <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">
+                <h3 className="text-sm font-semibold leading-6 tracking-tight text-gray-900">
                   {person.name}
                 </h3>
-                <p className="text-base leading-7 text-gray-600">
+                <p className="text-sm leading-5 text-gray-600">
                   {person.role}, {person.degree}
                 </p>
                 { person.link &&
@@ -326,13 +360,14 @@ function Example({ title, students }) {
                     {person.link}
                   </p>
                 }
-                <p className="mt-6 text-base leading-7 text-gray-600">
+                <p className="mt-3 text-sm leading-6 text-gray-600">
                   {person.bio}
                 </p>
               </div>
             </li>
           ))}
-        </ul>
+          </ul>
+        )}
       </div>
     </div>
   )
@@ -343,16 +378,24 @@ export function Students() {
     <section
       id="students"
       aria-label="Students"
-      className="bg-slate-900 py-20 sm:py-32"
+      className="bg-slate-900 py-12 sm:py-16"
     >
       <Container className="relative">
-        <div className="flex flex-col gap-6">
-          <Example title="Medical" students={medical_students} />
-          <Example title="PhD" students={phd_students} />
-          <Example title="Master's" students={masters_students} />
-          <Example title="Bachelor's" students={undergrad_students} />
-
-          {/* <Example /> */}
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-display mb-4">
+            Student Reseachers
+          </h1>
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-7">
+            Meet the diverse team of researchers, students, and alumni advancing neuroscience through innovative technology and dedicated research.
+          </p>
+        </div>
+        
+        <div className="flex flex-col gap-4">
+          <Example title="Medical" students={medical_students} bgColor="bg-white" />
+          <Example title="PhD" students={phd_students} bgColor="bg-white" />
+          <Example title="Master's" students={masters_students} bgColor="bg-white" />
+          <Example title="Bachelor's" students={undergrad_students} bgColor="bg-white" />
+          <Example title="Alumni" students={alumni} bgColor="bg-white"/>
         </div>
       </Container>
     </section>
