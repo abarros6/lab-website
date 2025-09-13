@@ -38,7 +38,7 @@ export function Hero() {
       Brain3DViz is a research lab at Western University, London, ON, Canada. With a diverse mix of research assistants, Master&apos;s, and PhD students, our main research interests concern neurosurgery, neuroimaging, 3D visualizations, and augmented reality.
       </p>
       <div className="mt-8 lg:mt-10">
-        <p className="font-display text-base text-slate-900">
+        <p className="font-display text-sm text-slate-900">
           Projects and Research supported by 
         </p>
         <ul

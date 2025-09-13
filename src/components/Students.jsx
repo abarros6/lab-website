@@ -349,7 +349,7 @@ function Example({ title, students, bgColor = "bg-white" }) {
                 />
               </div>
               <div className="flex-auto">
-                <h3 className="text-base font-semibold leading-6 tracking-tight text-gray-900">
+                <h3 className="text-sm font-semibold leading-6 tracking-tight text-gray-900">
                   {person.name}
                 </h3>
                 <p className="text-sm leading-5 text-gray-600">

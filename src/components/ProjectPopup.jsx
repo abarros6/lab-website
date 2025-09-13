@@ -39,7 +39,7 @@ export default function Example({open, setOpen, project}) {
                   </div> */}
                   <Carousel media={project.media}/>
                   <div className="mt-3 text-center sm:mt-5">
-                    <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                    <Dialog.Title as="h3" className="text-sm font-semibold leading-6 text-gray-900">
                       {project.title}
                     </Dialog.Title>
                     <div className="mt-2">

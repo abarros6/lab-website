@@ -187,7 +187,7 @@ export default function Example() {
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">
               Contact
             </h2>
-            <p className="mt-4 text-base leading-7 text-gray-600">
+            <p className="mt-4 text-sm leading-7 text-gray-600">
               Want to participate in our research? Thank you for your interest
               in our lab! If you would like to participate in our research,
               please send us an email and we will get back to you as soon as

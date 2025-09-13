@@ -42,7 +42,7 @@ function Feature({ feature, isActive, className, ...props }) {
       >
         {feature.title}
       </h3>
-      <p className="mt-3 text-sm leading-relaxed text-blue-50">{feature.description}</p>
+      <p className="mt-3 text-base leading-relaxed text-blue-50">{feature.description}</p>
     </div>
   )
 }
@@ -163,7 +163,7 @@ function FeaturesDesktop() {
               )}>
                 {feature.title}
               </h3>
-              <p className="text-xs text-blue-50 leading-relaxed">
+              <p className="text-sm text-blue-50 leading-relaxed">
                 {feature.description}
               </p>
             </button>

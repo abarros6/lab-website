@@ -57,7 +57,7 @@ function Plan({ name, price, description, href, features, featured = false }) {
       <h3 className="mt-5 font-display text-lg text-white">{name}</h3>
       <p
         className={clsx(
-          'mt-2 text-base',
+          'mt-2 text-sm',
           featured ? 'text-white' : 'text-slate-400'
         )}
       >

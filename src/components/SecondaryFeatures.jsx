@@ -108,7 +108,7 @@ function Feature({ feature, isActive, className, ...props }) {
       <p className="mt-2 font-display text-lg text-slate-900">
         {feature.summary}
       </p>
-      <p className="mt-3 text-xs text-slate-600">{feature.description}</p>
+      <p className="mt-3 text-sm text-slate-600">{feature.description}</p>
     </div>
   )
 }
@@ -230,7 +230,7 @@ function FeaturesDesktop() {
           />
         ))}
       </Tab.List>
-      <Tab.Panels className="relative mt-8 overflow-hidden rounded-4xl bg-slate-200 px-8 py-6 xl:px-10">
+      <Tab.Panels className="relative mt-4 overflow-hidden rounded-4xl bg-slate-200 px-8 py-6 xl:px-10">
         <div className="relative w-full">
           {features.map((feature, featureIndex) => (
             <Tab.Panel
