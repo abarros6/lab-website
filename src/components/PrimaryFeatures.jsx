@@ -36,13 +36,13 @@ function Feature({ feature, isActive, className, ...props }) {
     >
       <h3
         className={clsx(
-          'text-2xl font-bold tracking-tight',
+          'text-xl font-bold tracking-tight',
           isActive ? 'text-white' : 'text-blue-100'
         )}
       >
         {feature.title}
       </h3>
-      <p className="mt-4 text-base leading-relaxed text-blue-50">{feature.description}</p>
+      <p className="mt-3 text-sm leading-relaxed text-blue-50">{feature.description}</p>
     </div>
   )
 }
@@ -59,9 +59,9 @@ function FeaturesMobile() {
   };
 
   return (
-    <div className="mt-16 lg:hidden">
+    <div className="mt-12 lg:hidden">
       <div className="relative px-4 sm:px-6">
-        <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl mb-8" isActive />
+        <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl mb-6" isActive />
         <div className="relative">
           <div className="absolute bg-slate-200 rounded-xl" />
           <div className="relative pt-6 pb-8 px-4 sm:px-6">
@@ -142,28 +142,28 @@ function FeaturesDesktop() {
   };
 
   return (
-    <div className="hidden lg:mt-16 lg:block">
+    <div className="hidden lg:mt-12 lg:block">
       <div className="grid grid-cols-12 gap-8 items-center">
         {/* Feature Navigation - Left Side */}
-        <div className="col-span-4 space-y-4">
+        <div className="col-span-4 space-y-3">
           {features.map((feature, featureIndex) => (
             <button
               key={feature.title}
               onClick={() => setSelectedIndex(featureIndex)}
               className={clsx(
-                'w-full text-left p-6 rounded-2xl transition-all duration-300 border-2',
+                'w-full text-left p-4 rounded-2xl transition-all duration-300 border-2',
                 featureIndex === selectedIndex
                   ? 'bg-white/20 border-white/40 shadow-2xl'
                   : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
               )}
             >
               <h3 className={clsx(
-                'text-xl font-bold tracking-tight mb-3',
+                'text-lg font-bold tracking-tight mb-2',
                 featureIndex === selectedIndex ? 'text-white' : 'text-blue-100'
               )}>
                 {feature.title}
               </h3>
-              <p className="text-sm text-blue-50 leading-relaxed">
+              <p className="text-xs text-blue-50 leading-relaxed">
                 {feature.description}
               </p>
             </button>
@@ -256,17 +256,17 @@ export function PrimaryFeatures() {
     <section
       id="about"
       aria-label="Features for running your books"
-      className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-custom-blue pt-16 pb-20 sm:pt-20 sm:pb-24"
+      className="relative w-full overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-custom-blue pt-12 pb-16 sm:pt-16 sm:pb-20"
     >
       <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600/90 via-blue-700/90 to-blue-800/90"></div>
       <div className="absolute inset-0 w-full h-full bg-blue-700 opacity-10"></div>
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
-          <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
+          <h2 className="font-display text-2xl tracking-tight text-white sm:text-3xl md:text-4xl">
             Showcasing the Latest Advances in Neuroscience Research from Our
             Lab.
           </h2>
-          <p className="mt-6 text-lg tracking-tight text-blue-100">
+          <p className="mt-4 text-base tracking-tight text-blue-100">
             Our website provides a platform for our lab to showcase the latest
             research in the field of neuroscience. We aim to share our findings
             with the world and promote collaboration and innovation in the

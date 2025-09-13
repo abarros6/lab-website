@@ -150,7 +150,7 @@ export default function Example() {
   return (
     <div className="relative isolate bg-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
-        <div className="relative px-6 pt-8 pb-8 sm:pt-12 lg:static lg:py-16 lg:px-8">
+        <div className="relative px-6 pt-6 pb-6 sm:pt-8 lg:static lg:py-12 lg:px-8">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2">
               {/* <svg
@@ -184,16 +184,16 @@ export default function Example() {
                 unoptimized
               />
             </div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+            <h2 className="text-2xl font-bold tracking-tight text-gray-900">
               Contact
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-4 text-base leading-7 text-gray-600">
               Want to participate in our research? Thank you for your interest
               in our lab! If you would like to participate in our research,
               please send us an email and we will get back to you as soon as
               possible.
             </p>
-            <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
+            <dl className="mt-6 space-y-3 text-sm leading-6 text-gray-600">
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Telephone</span>
@@ -248,11 +248,11 @@ export default function Example() {
         <form
           action="#"
           method="POST"
-          className="px-6 pb-8 pt-8 sm:pb-12 lg:py-16 lg:px-8"
+          className="px-6 pb-6 pt-6 sm:pb-8 lg:py-12 lg:px-8"
           onSubmit={handleSubmit}
         >
           <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-            <div className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-y-3 gap-x-6 sm:grid-cols-2">
               <div>
                 <label
                   htmlFor="first-name"
@@ -260,7 +260,7 @@ export default function Example() {
                 >
                   First name <span className="text-red-500">*</span>
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <input
                     value={fname}
                     onChange={(e) => setFname(e.target.value)}
@@ -283,7 +283,7 @@ export default function Example() {
                 >
                   Last name <span className="text-red-500">*</span>
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <input
                     value={lname}
                     onChange={(e) => setLname(e.target.value)}
@@ -303,7 +303,7 @@ export default function Example() {
                 >
                   Email <span className="text-red-500">*</span>
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <input
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -323,7 +323,7 @@ export default function Example() {
                 >
                   Phone number (optional)
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <input
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -342,7 +342,7 @@ export default function Example() {
                 >
                   Message <span className="text-red-500">*</span>
                 </label>
-                <div className="mt-2.5">
+                <div className="mt-2">
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
@@ -355,7 +355,7 @@ export default function Example() {
                 </div>
               </div>
             </div>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-6 flex justify-center">
               <button
                 type="submit"
                 disabled={isLoading}

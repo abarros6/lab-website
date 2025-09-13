@@ -8,9 +8,9 @@ export function Footer() {
   return (
     <footer className="bg-slate-50">
       <Container>
-        <div className="py-12 sm:py-16">
+        <div className="py-8 sm:py-10">
           <Logo className="mx-auto h-10 w-auto" />
-          <nav className="mt-8 text-sm" aria-label="quick links">
+          <nav className="mt-6 text-sm" aria-label="quick links">
             {/* Desktop Navigation */}
             <div className="hidden md:flex justify-center gap-x-8">
               <NavLink href="#about">About Us</NavLink>
@@ -20,7 +20,7 @@ export function Footer() {
               <NavLink href="#contact">Contact</NavLink>
             </div>
             {/* Mobile Navigation */}
-            <div className="md:hidden flex flex-col items-center space-y-3">
+            <div className="md:hidden flex flex-col items-center space-y-2">
               <NavLink href="#about">About Us</NavLink>
               <NavLink href="/dashboard/projects">Projects and Publications</NavLink>
               <NavLink href="#researchers">Researchers</NavLink>
@@ -30,7 +30,7 @@ export function Footer() {
           </nav>
         </div>
         
-        <div className="flex flex-col items-center border-t border-slate-400/10 py-8">
+        <div className="flex flex-col items-center border-t border-slate-400/10 py-6">
           <p className="text-sm text-slate-500 text-center">
             Copyright &copy; {new Date().getFullYear()} Brain3DViz Lab, Western University.<br className="sm:hidden" />
             <span className="hidden sm:inline"> </span>All rights reserved.

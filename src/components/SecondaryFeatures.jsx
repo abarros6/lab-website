@@ -25,10 +25,12 @@ const features = [
     icon: function NeuroimagingIcon() {
       return (
         <>
+          {/* Brain scan/MRI icon */}
           <path
             fill="#6692F1"
-            d="M26 15.71v8.58A2.47 2.47 0 0 1 23.56 27H8.44A2.47 2.47 0 0 1 6 24.29V15.71A2.47 2.47 0 0 1 8.44 13h15.12A2.47 2.47 0 0 1 26 15.71ZM16 23.3a3.3 3.3 0 1 0-3.3-3.3A3.3 3.3 0 0 0 16 23.3Zm7.48-8.46A4.43 4.43 0 1 0 19.9 10.4 4.43 4.43 0 0 0 23.48 14.84Z"
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM8 12l2.5 2.5L8 17l-2.5-2.5L8 12zm8 0l2.5 2.5L16 17l-2.5-2.5L16 12zm-4 4.5L15.5 19 12 21.5 8.5 19 12 16.5z"
           />
+          <circle cx="12" cy="12" r="2" fill="#6692F1" opacity="0.6"/>
         </>
       )
     },
@@ -44,9 +46,16 @@ const features = [
     icon: function VirtualRealityIcon() {
       return (
         <>
+          {/* VR headset icon */}
           <path
             fill="#6692F1"
-            d="M26 15.71v8.58A2.47 2.47 0 0 1 23.56 27H8.44A2.47 2.47 0 0 1 6 24.29V15.71A2.47 2.47 0 0 1 8.44 13h15.12A2.47 2.47 0 0 1 26 15.71ZM16 23.3a3.3 3.3 0 1 0-3.3-3.3A3.3 3.3 0 0 0 16 23.3Zm7.48-8.46A4.43 4.43 0 1 0 19.9 10.4 4.43 4.43 0 0 0 23.48 14.84Z"
+            d="M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-2 12H6c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v8c0 .55-.45 1-1 1z"
+          />
+          <circle cx="9" cy="12" r="2" fill="#6692F1"/>
+          <circle cx="15" cy="12" r="2" fill="#6692F1"/>
+          <path
+            fill="#6692F1"
+            d="M2 19h4v2H2zm16 0h4v2h-4z"
           />
         </>
       )
@@ -62,9 +71,19 @@ const features = [
     icon: function AugmentedRealityIcon() {
       return (
         <>
+          {/* AR glasses/overlay icon */}
           <path
             fill="#6692F1"
-            d="M19.88 8.44a2.87 2.87 0 0 0-4 0l-.89.89-.89-.89a2.87 2.87 0 0 0-4 4l.89.89-.89.89a2.87 2.87 0 0 0 4 4l.89-.89.89.89a2.87 2.87 0 0 0 4-4l-.89-.89.89-.89a2.87 2.87 0 0 0 0-4Z"
+            d="M12 2l3.09 6.26L22 9l-5.09 3.26L12 22l-4.91-9.74L2 9l6.91-.74L12 2z"
+          />
+          <path
+            fill="#6692F1"
+            opacity="0.6"
+            d="M18 8c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2s-2-.9-2-2v-6c0-1.1.9-2 2-2zM6 8c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2s-2-.9-2-2v-6c0-1.1.9-2 2-2z"
+          />
+          <path
+            fill="#6692F1"
+            d="M8 10h8v1H8z"
           />
         </>
       )
@@ -78,28 +97,18 @@ function Feature({ feature, isActive, className, ...props }) {
       className={clsx(className, !isActive && 'opacity-75 hover:opacity-100')}
       {...props}
     >
-      <div
-        className={clsx(
-          'w-9 rounded-lg',
-          isActive ? 'bg-blue-600' : 'bg-slate-500'
-        )}
-      >
-        <svg aria-hidden="true" className="h-9 w-9" fill="none">
-          <feature.icon />
-        </svg>
-      </div>
       <h3
         className={clsx(
-          'mt-6 text-sm font-medium',
+          'text-sm font-medium',
           isActive ? 'text-blue-600' : 'text-slate-600'
         )}
       >
         {feature.name}
       </h3>
-      <p className="mt-2 font-display text-xl text-slate-900">
+      <p className="mt-2 font-display text-lg text-slate-900">
         {feature.summary}
       </p>
-      <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
+      <p className="mt-3 text-xs text-slate-600">{feature.description}</p>
     </div>
   )
 }
@@ -116,10 +125,10 @@ function FeaturesMobile() {
   };
 
   return (
-    <div className="mt-8 px-4 sm:px-6 lg:hidden">
+    <div className="mt-6 px-4 sm:px-6 lg:hidden">
       <div className="relative">
         <Feature feature={features[currentIndex]} className="mx-auto max-w-2xl" isActive />
-        <div className="relative mt-6 pb-6">
+        <div className="relative mt-4 pb-4">
           <div className="absolute bottom-0 top-6 rounded-xl bg-slate-200" />
           <div className="relative mx-auto max-w-full overflow-hidden rounded-xl bg-white shadow-lg shadow-slate-900/5 ring-1 ring-slate-500/10">
             {!features[currentIndex].video ? (
@@ -202,8 +211,8 @@ function FeaturesDesktop() {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
-    <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex} as="div" className="hidden lg:mt-8 lg:block">
-      <Tab.List className="grid grid-cols-3 gap-x-8">
+    <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex} as="div" className="hidden lg:mt-6 lg:block">
+      <Tab.List className="grid grid-cols-3 gap-x-6">
         {features.map((feature, featureIndex) => (
           <Feature
             key={feature.name}
@@ -221,7 +230,7 @@ function FeaturesDesktop() {
           />
         ))}
       </Tab.List>
-      <Tab.Panels className="relative mt-12 overflow-hidden rounded-4xl bg-slate-200 px-10 py-8 xl:px-12">
+      <Tab.Panels className="relative mt-8 overflow-hidden rounded-4xl bg-slate-200 px-8 py-6 xl:px-10">
         <div className="relative w-full">
           {features.map((feature, featureIndex) => (
             <Tab.Panel
@@ -303,14 +312,14 @@ export function SecondaryFeatures() {
     <section
       id="projects"
       aria-label="Features for simplifying everyday business tasks"
-      className="pt-8 pb-6 sm:pb-8 sm:pt-12 lg:pb-12"
+      className="pt-6 pb-4 sm:pb-6 sm:pt-8 lg:pb-8"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
-          <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
+          <h2 className="font-display text-2xl tracking-tight text-slate-900 sm:text-3xl">
             Revolutionize Neuroscience research.
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
+          <p className="mt-3 text-base tracking-tight text-slate-700">
             With our cutting-edge technology, we aim to revolutionize the way
             neuroscience research is conducted, providing researchers with new
             and exciting tools to explore the brain and the mind.
