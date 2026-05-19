@@ -175,9 +175,6 @@ const phd_students = [
     imageUrl: Blank,
     bio: 'Maryum is interested in pediatric neurorehabilitation and the use of technology to support cognitive development in children with infantile hydrocephalus. Her current research investigates whether interactive tablet and immersive virtual reality (VR) games can help improve visuospatial skills in this population. She will compare the effects of VR and tablet-based training, alongside behavioural assessments and resting-state fMRI. This work aims to explore brain plasticity and inform the development of engaging, tech-based tools for long-term cognitive support. ',
   },
-]
-
-const masters_students = [
   {
     name: 'Parjanya Parikh',
     role: 'Neuroscience',
@@ -185,6 +182,9 @@ const masters_students = [
     imageUrl: Parjanya,
     bio: 'Parjanya Parikh is currently researching the long-term effects of shunt-treated hydrocephalus in school-age children, with a particular emphasis on working memory development. Using neuroimaging methods, Parjanya is investigating how early neurosurgical interventions shape cognitive outcomes and brain connectivity patterns, with the goal of informing both clinical care and educational support strategies.',
   },
+]
+
+const masters_students = [
   {
     name: 'Matthew Peck',
     role: 'Software Engineering',
