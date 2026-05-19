@@ -178,7 +178,7 @@ const phd_students = [
   {
     name: 'Parjanya Parikh',
     role: 'Neuroscience',
-    degree: 'MSc',
+    degree: 'PhD',
     imageUrl: Parjanya,
     bio: 'Parjanya Parikh is currently researching the long-term effects of shunt-treated hydrocephalus in school-age children, with a particular emphasis on working memory development. Using neuroimaging methods, Parjanya is investigating how early neurosurgical interventions shape cognitive outcomes and brain connectivity patterns, with the goal of informing both clinical care and educational support strategies.',
   },
